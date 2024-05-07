@@ -14,6 +14,17 @@ module.exports = {
 
     },
 
+    async userById(req, res) {
+        const {id} = req.params;
+
+        if(id == null || id == "")
+            return res.status(404).send({ message: "Usuário não encontrado" });
+
+        var user = await User.findByPk(id);
+
+        return res.status(200).send(user);
+    },
+
     async store(req, res) {
         const { name, password, email } = req.body;
 
