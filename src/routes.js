@@ -9,4 +9,6 @@ router.post('/users', services.store)
 router.put('/users/:id', services.update)
 router.delete('/users/:id', services.delete)
 
+router.post('/users/login', services.login)
+
 module.exports = router;
