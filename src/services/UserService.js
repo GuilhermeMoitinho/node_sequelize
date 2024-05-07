@@ -15,7 +15,15 @@ module.exports = {
     },
 
     async store(req, res) {
-    
+        const { name, password, email } = req.body;
+
+        const user = await User.create({ name, password, email });
+
+        return res.status(201).send({
+            sucesso: true,
+            message: 'usuário cadastrado com sucesso!',
+            userCreate: user 
+        });
     },
 
     async update(req, res) {
